@@ -13,8 +13,8 @@ class SearchFiler extends React.Component {
     render(){
         return(
             <div>
-                <label>Search</label>
-                <input type="text" id="filter" onChange={this.handleChange}/>
+                <label >Search</label>
+                <input className='margin-left: 10px' type="text" id="filter" onChange={this.handleChange}/>
             </div>
         );
     };

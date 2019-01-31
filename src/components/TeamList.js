@@ -1,37 +1,53 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { withRouter } from 'react-router'
+import ListGroup from 'react-bootstrap/ListGroup';
+
+import TeamListItem from './TeamListItem';
+import { fetchUserList } from '../actions/users';
+import { fetchTeamList } from '../actions/teams'
 
 class TeamList extends React.Component {
+    componentDidMount(){
+        this.props.fetchUserList();
+        this.props.fetchTeamList();
+    
+    }
 
     renderList(){
-       console.log("filter", this.props.filter)
-
-        let filteredList = this.props.teamList.filter(team =>{
-            let name = team.name.toLowerCase();
-            return name.indexOf(
-                this.props.filter.toString().toLowerCase() > -1
-            )
+        let filteredList = this.props.teamList.filter(team => {
+            return team.name.toLowerCase().includes(this.props.searchFilter.toLowerCase()) && team;
         });
-        
-        console.log("list", filteredList)
+
         return filteredList.map(team => {
             return(
-                <li key={team.id}>{team.name}</li>
-            )
-        })
-    }
+            <li key={team.id}>
+            <TeamListItem team={team}/>
+            </li>
+
+            );
+        });
+    };
 
     render(){
         return(
             <div>{this.props.teamList && this.renderList()}</div>
-        )
-    }
-}
+        );
+    };
+};
 const mapStateToProps = (state) => {
     return{
         teamList:state.teams.teamList,
-        filter: state.filter
+        searchFilter: state.search.filter
     }   
 }
 
-export default connect(mapStateToProps, null )(TeamList);
+
+const mapDispatchToProps = (dispatch) => {
+    return{
+        fetchUserList: () => dispatch(fetchUserList()),
+        fetchTeamList: () => dispatch(fetchTeamList())
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TeamList));

@@ -3,12 +3,12 @@ import {createStore, compose, combineReducers, applyMiddleware} from 'redux';
 
 import teamsReducer from './reducers/teams';
 import usersReducer from './reducers/users';
-import filterReducer from './reducers/filter';
+import searchReducer from './reducers/search';
 
 const rootReducer = combineReducers({
     teams: teamsReducer,
     users: usersReducer,
-    filter: filterReducer
+    search: searchReducer
 })
 
 const configureStore = (initialState = {}) => {

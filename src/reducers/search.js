@@ -1,6 +1,10 @@
 import * as ACTIONS from '../actions/types';
 
-export default function (state = '', action) {
+const initialState = {
+    filter: ""
+}
+
+export default function (state =initialState, action) {
     switch(action.type) {
 
         case ACTIONS.UPDATE_FILTER:

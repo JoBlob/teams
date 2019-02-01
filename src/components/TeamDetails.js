@@ -13,13 +13,13 @@ class TeamDetails extends React.Component {
                     <th> Name </th>
                 </tr> 
             </thead>
-        )
-    }
+        );
+    };
 
     renderMemberTable(){
 
         const memberList = this.props.userList.filter( user => {
-            return this.props.team.members.find( member => user.id === member)
+            return this.props.team.members.find( member => user.id === member);
         });
 
         const lead = this.props.userList.find( user => user.id === this.props.team.lead);
@@ -34,8 +34,8 @@ class TeamDetails extends React.Component {
             return (
                 <tbody key={member.id}>
                     <tr>
-                    <td>{member.username}</td>
-                    <td>{member.name}</td>
+                        <td>{member.username}</td>
+                        <td>{member.name}</td>
                     </tr>
                 </tbody>
             );

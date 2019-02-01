@@ -6,15 +6,15 @@ export default function (state = [], action) {
         return { 
            ...state, 
            teamList: [...action.payload]
-        }
+        };
 
         case ACTIONS.GET_TEAM_DETAILS_SUCESS:
         return{
             ...state,
             teamDetails:{...action.payload}
-        }
+        };
         
         default:
         return state;
     }
-}
+};

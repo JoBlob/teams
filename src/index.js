@@ -22,6 +22,5 @@ ReactDOM.render(
                 </Switch>
             </App>
         </BrowserRouter>
-      
     </Provider>
 , document.querySelector('#root'));

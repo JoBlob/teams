@@ -6,15 +6,15 @@ export default function (state = [], action) {
         return { 
            ...state, 
            userList: [...action.payload]
-        }
+        };
 
         case ACTIONS.GET_USER_DETAILS_SUCCESS:
         return{
             ...state,
             userDetails:{...action.payload}
-        }
+        };
         
         default:
         return state;
     }
-}   
+};

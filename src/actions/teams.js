@@ -43,9 +43,9 @@ export const fetchTeamList = () => {
             dispatch(getTeamListSuccess(json))
         ).catch(error => {
             dispatch(getTeamListFailure(error));;
-        })
-    }
-}
+        });
+    };
+};
 
 
 
@@ -90,7 +90,7 @@ export const fetchTeamDetails = (id) => {
             dispatch(getTeamDetailsSuccess(json))
         ).catch(error => {
             dispatch(getTeamDetailsFailure(error));;
-        })
-    }
-}
+        });
+    };
+};
 

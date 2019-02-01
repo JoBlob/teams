@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { withRouter } from 'react-router'
-import ListGroup from 'react-bootstrap/ListGroup';
 
 import TeamListItem from './TeamListItem';
 import { fetchUserList } from '../actions/users';
@@ -11,7 +10,6 @@ class TeamList extends React.Component {
     componentDidMount(){
         this.props.fetchUserList();
         this.props.fetchTeamList();
-    
     }
 
     renderList(){
@@ -22,9 +20,8 @@ class TeamList extends React.Component {
         return filteredList.map(team => {
             return(
             <li key={team.id}>
-            <TeamListItem team={team}/>
+                <TeamListItem team={team}/>
             </li>
-
             );
         });
     };
@@ -35,19 +32,20 @@ class TeamList extends React.Component {
         );
     };
 };
+
+
 const mapStateToProps = (state) => {
     return{
         teamList:state.teams.teamList,
         searchFilter: state.search.filter
-    }   
-}
-
+    };
+};
 
 const mapDispatchToProps = (dispatch) => {
     return{
         fetchUserList: () => dispatch(fetchUserList()),
         fetchTeamList: () => dispatch(fetchTeamList())
-    }
-}
+    };
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TeamList));

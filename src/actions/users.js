@@ -42,9 +42,9 @@ export const fetchUserList = () => {
             dispatch(getUserListSuccess(json))
         ).catch(error => {
             dispatch(getUserListFailure(error));;
-        })
-    }
-}
+        });
+    };
+};
 
 
 // GET user info

@@ -6,11 +6,12 @@ import TeamListItem from './TeamListItem';
 import { fetchUserList } from '../actions/users';
 import { fetchTeamList } from '../actions/teams'
 
-class TeamList extends React.Component {
+export class TeamList extends React.Component {
+    
     componentDidMount(){
         this.props.fetchUserList();
         this.props.fetchTeamList();
-    }
+    };
 
     renderList(){
         let filteredList = this.props.teamList.filter(team => {

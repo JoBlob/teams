@@ -18,10 +18,10 @@ class TeamListItem extends React.Component {
         );
     };
 
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
-    return{
+    return {
         fetchTeamDetails: (id) => dispatch(fetchTeamDetails(id))
     };
 };

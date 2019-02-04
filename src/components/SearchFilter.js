@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 
 import { updateFilter } from '../actions/filter';
 
-class SearchFiler extends React.Component {
+class SearchFilter extends React.Component {
 
 
     handleChange = (e) => {
@@ -27,11 +27,6 @@ class SearchFiler extends React.Component {
     };
 };
 
-const mapStateToProps = (state) => {
-    return {
-        filter: state.filter
-    };
-};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -39,4 +34,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchFiler);
+export default connect(null, mapDispatchToProps)(SearchFilter);

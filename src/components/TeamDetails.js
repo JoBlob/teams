@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import  Table  from 'react-bootstrap/Table';
 
-class TeamDetails extends React.Component {
+export class TeamDetails extends React.Component {
 
     renderTableHeader(){
         return(      
@@ -11,12 +11,12 @@ class TeamDetails extends React.Component {
                 <tr>
                     <th>Username</th>
                     <th> Name </th>
-                </tr> 
+                </tr>
             </thead>
         );
     };
 
-    renderMemberTable(){
+    renderTableBody(){
 
         const memberList = this.props.userList.filter( user => {
             return this.props.team.members.find( member => user.id === member);
@@ -32,12 +32,10 @@ class TeamDetails extends React.Component {
 
        return filteredList.map(member=>{
             return (
-                <tbody key={member.id}>
-                    <tr>
-                        <td>{member.username}</td>
-                        <td>{member.name}</td>
-                    </tr>
-                </tbody>
+                <tr key={member.id}>
+                    <td>{member.username}</td>
+                    <td>{member.name}</td>
+                </tr>
             );
         });
     };
@@ -46,8 +44,10 @@ class TeamDetails extends React.Component {
         return(
            <div>
                <Table striped bordered hover size="sm">
-                    {this.props.team && this.renderTableHeader()}
-                    {this.props.team && this.renderMemberTable()}
+               {this.props.team && this.renderTableHeader()}
+               <tbody >
+                    {this.props.team && this.renderTableBody()}
+                </tbody>
                </Table>
                 <Link to="/">Back</Link>
             </div>
@@ -55,8 +55,8 @@ class TeamDetails extends React.Component {
     };
 };
 
-const mapStateToProps =(state) => {
-    return{
+const mapStateToProps = (state) => {
+    return {
         team: state.teams.teamDetails,
         userList: state.users.userList,
         searchFilter: state.search.filter

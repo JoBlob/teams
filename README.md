@@ -1,4 +1,5 @@
 
+
 npm install
 
 npm start
@@ -17,6 +18,7 @@ Since I was already over the expected time limit I did not write tests for every
 show you what I can do.
 
 I would've liked to find a more reusable way to call the APIs but again, I wanted to keep things simple. If it had been a production app I would've asked for advice on how to write a more elegant/reusable piece of code.
+
 
 
 
